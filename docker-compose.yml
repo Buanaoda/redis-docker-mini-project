@@ -1,0 +1,13 @@
+version: '3'
+services:
+  myapp:
+    build: .  
+    ports:
+     - "8000:8000"
+    links:
+     - redis:redis
+  redis:
+    image: "redis:latest"
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+
+    
